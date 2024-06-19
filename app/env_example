@@ -1,0 +1,4 @@
+DEBUG=False
+SECRET_KEY=geheimerkey
+ALLOWED_HOSTS=test.example.com,example.com
+DJANGO_SETTINGS_MODULE=project.settings.prod

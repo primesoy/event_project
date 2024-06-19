@@ -6,6 +6,10 @@
 #
 asgiref==3.8.1
     # via django
+attrs==23.2.0
+    # via
+    #   jsonschema
+    #   referencing
 certifi==2024.6.2
     # via requests
 charset-normalizer==3.3.2
@@ -15,17 +19,45 @@ django==5.0.6
     #   -r .\requirements.in
     #   django-jazzmin
     #   djangorestframework
+    #   drf-spectacular
+    #   drf-spectacular-sidecar
+django-environ==0.11.2
+    # via -r .\requirements.in
 django-jazzmin==3.0.0
     # via -r .\requirements.in
 djangorestframework==3.15.1
+    # via
+    #   -r .\requirements.in
+    #   drf-spectacular
+drf-spectacular==0.27.2
+    # via -r .\requirements.in
+drf-spectacular-sidecar==2024.6.1
     # via -r .\requirements.in
 idna==3.7
     # via requests
+inflection==0.5.1
+    # via drf-spectacular
+jsonschema==4.22.0
+    # via drf-spectacular
+jsonschema-specifications==2023.12.1
+    # via jsonschema
+pyyaml==6.0.1
+    # via drf-spectacular
+referencing==0.35.1
+    # via
+    #   jsonschema
+    #   jsonschema-specifications
 requests==2.32.3
     # via -r .\requirements.in
+rpds-py==0.18.1
+    # via
+    #   jsonschema
+    #   referencing
 sqlparse==0.5.0
     # via django
 tzdata==2024.1
     # via django
+uritemplate==4.1.1
+    # via drf-spectacular
 urllib3==2.2.2
     # via requests

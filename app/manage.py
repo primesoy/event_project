@@ -3,10 +3,14 @@
 import os
 import sys
 
+from project.env import BASE_DIR, env
+env.read_env(BASE_DIR / ".env")  # lese Umgebungsvariablen auf .env ein
+
+
 
 def main():
-    """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project.settings')
+    # DJANGO_SETTINGS_MODULE Umgebungsvariable sollte jetzt vorhanden sein
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project.settings.prod')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
