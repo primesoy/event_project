@@ -42,7 +42,15 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'user',
+    'events',
+    'core',
 ]
+
+INSTALLED_APPS.extend(
+    [
+        "debug_toolbar"
+    ]
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -52,6 +60,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+MIDDLEWARE.extend(
+    [
+        "debug_toolbar.middleware.DebugToolbarMiddleware",
+    ]
+)
+
+INTERNAL_IPS = [
+    "127.0.0.1",
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -132,6 +150,7 @@ USE_TZ = True
 
 STATIC_URL = 'staticio/'
 STATIC_ROOT = BASE_DIR / "staticfiles"  # python manage.py
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

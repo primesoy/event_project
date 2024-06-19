@@ -21,7 +21,7 @@ class CustomUserManager(BaseUserManager):
 
 
     def create_user(self, email, password=None, **extra_fields):
-        """Methode zum Anlegen eines Standard-Users."""
+        """Methode zum Anlegen eines Standard-Users. wird von API aufgerufen"""
         user = self.model(email=email, **extra_fields)
         user.email_token = uuid.uuid1()
         user.set_password(password)
@@ -30,7 +30,7 @@ class CustomUserManager(BaseUserManager):
         return user
     
     def create_superuser(self, email, password=None):
-        """Methode zum Anlegen eines Superusers."""
+        """Methode zum Anlegen eines Superusers. wird direkt von der Admin aufgerufen."""
         user = self.create_user(email, password)
         user.is_superuser = True
         user.is_staff = True 
@@ -65,6 +65,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     )
 
 
-
     objects = CustomUserManager()
     USERNAME_FIELD = "email"
+
+    def __str__(self):
+        return self.email
